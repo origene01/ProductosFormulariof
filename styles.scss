@@ -1,0 +1,37 @@
+@use "@angular/material" as mat;
+
+.primary{
+    @include mat.theme(
+        (
+            color: mat.$azure-palette
+        )
+    )
+}
+.secondary{
+    @include mat.theme(
+        (
+            color: mat.$magenta-palette
+        )
+    )
+}
+
+
+.warn{
+    @include mat.theme(
+        (
+            color: mat.$red-palette
+        )
+    )
+}
+
+.link{
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 21px;
+    &:hover{
+        animation:  0.8ms ease-in-out ;
+        font-size: 23px;
+    }
+}
+

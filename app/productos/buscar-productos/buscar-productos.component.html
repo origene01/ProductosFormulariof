@@ -1,0 +1,34 @@
+<div class="barra-busqueda">
+
+
+
+
+
+  <h1>Buscar Productos</h1>
+
+  <mat-form-field appearance="outline" class="buscar">
+    <mat-label>buscar por nombre o código</mat-label>
+    <input matInput [(ngModel)]="textoBusqueda" (input)="buscarProducto()" placeholder="Eje: Laptop, 514" />
+  </mat-form-field>
+
+  <div *ngIf="busquedaRealizada" >
+    <div *ngIf="productosFiltrados.length > 0; else noResultados" class="resultados">
+      <h3>Resultados encontrados:</h3>
+      <div *ngFor="let p of productosFiltrados" class="producto">
+        <p><strong>Producto:</strong> {{ p.Producto }}</p>
+        <p><strong>Código:</strong> #{{ p.Codigo }}</p>
+        <p><strong>Descripción:</strong> {{ p.Descripcion }}</p>
+        <p><strong>Precio:</strong> {{ p.Precio | currency }}</p>
+        <p><strong>Estado:</strong> {{ p.Estado }}</p>
+      </div>
+    </div>
+    <div class="cajaBonesB">
+
+      <a mat-stroked-button routerLink="/productos">Volver</a>
+    </div>
+    <ng-template #noResultados>
+      <p>No se encontraron productos o no hay ninguno guardado.</p>
+    </ng-template>
+
+
+  </div>
